@@ -13,6 +13,9 @@ use takproto::TakMessage;
 use prost::Message; // Import the Message trait for decoding
 
 mod xml;
+mod cot_proto_translater;
+
+pub use cot_proto_translater::{xml_to_protobuf, protobuf_to_xml};
 
 enum Marshalling {
     Xml,

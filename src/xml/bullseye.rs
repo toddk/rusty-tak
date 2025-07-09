@@ -36,7 +36,7 @@ pub struct Point {
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Detail {
-    #[serde(rename = "$choice")]
+    #[serde(rename = "$value", default)]
     pub items: Vec<DetailItem>,
 }
 
