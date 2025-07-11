@@ -1,20 +1,2 @@
-[package]
-name = "rusty-tak"
-version = "0.1.0"
-edition = "2021"
-build = "build.rs"
-
-[lib]
-crate-type = ["cdylib"]
-
-[dependencies]
-bytes = "1.10.1"
-chrono = { version = "0.4.41", features = ["serde"] }
-prost = "0.13.5"
-quick-xml = { version = "0.36.0", features = ["serialize"] }
-serde = { version = "1.0.203", features = ["derive"] }
-wasm-bindgen = "0.2"
-web-sys = { version = "0.3", features = ["console"] }
-
-[build-dependencies]
-prost-build = "0.13.5"
+[workspace]
+members = ["converter", "server"]

@@ -1,0 +1,17 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
+
+[dependencies]
+converter = { path = "../converter" }
+bytes = "1.10.1"
+chrono = { version = "0.4.41", features = ["serde"] }
+prost = "0.13.5"
+quick-xml = { version = "0.36.0", features = ["serialize"] }
+serde = { version = "1.0.203", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }

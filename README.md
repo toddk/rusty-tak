@@ -3,18 +3,53 @@ A server developed in Rust that listens for multicast traffic from a TAK device 
 
 This project will start a background process that joins a specified mutlicast group. After joining the group, it will listen for TAK traffic (this project supports legacy CoT as well as protobuf). As traffic is received it is sent onto Sit(x).
 
-## Sit(x) Setup
-It is recommended that a Sit(x) group is dedicated to the traffic that this server will aggregate and pass along.
+_NOTE:_ This project leverages public domain information found within the following repository: (https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV)[https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV]
 
-## Compiling
-The `cargo build` command is used to build this project.
+## Build Instructions
 
-## Running
-To run this project as a standalone executable, use:
+### Building the Standalone Application
+
+To build the standalone server application, run:
 
 ```bash
-cargo run <multicast_address> <port>
+cargo build --release
 ```
+
+The compiled binary will be located in the `target/release/` directory (e.g., `target/release/rusty-tak`).
+
+### Building the Library
+
+To build the library for use in other Rust projects, run:
+
+```bash
+cargo build --lib --release
+```
+
+This will build the library crate, which can then be included as a dependency in your own Rust projects.
+
+## Usage Instructions
+
+### Running the Standalone Application
+
+To run the server as a standalone executable, use:
+
+```bash
+cargo run --release -- <multicast_address> <port>
+```
+
+Or, after building:
+
+```bash
+./target/release/rusty-tak <multicast_address> <port>
+```
+
+**Example:**
+
+```bash
+./target/release/rusty-tak 239.2.3.1 6969
+```
+
+This will start the server, join the specified multicast group, and listen for TAK traffic on the given port.
 
 ### Using as a Rust Library
 This project can also be integrated as a library into other Rust projects. Add `rusty-tak` as a dependency in your `Cargo.toml`:

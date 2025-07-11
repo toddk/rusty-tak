@@ -1,6 +1,3 @@
-
-pub mod tests;
-
 use crate::takproto::{CotEvent, TakMessage};
 use crate::xml::bullseye::{Detail, Event, Point};
 use prost::Message;
